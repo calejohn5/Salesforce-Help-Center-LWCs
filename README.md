@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Salesforce DX Project: Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
@@ -16,3 +17,7 @@ The `sfdx-project.json` file contains useful configuration information for your 
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+=======
+# Salesforce-Help-Center-LWCs
+This is a set of reusable LWCs that allow users to click on articles/topics to help navigate throughout their site. It is customizable (i.e., text color, font, size, images) from an admins view by navigating to the Articles object and editing the records there.
+>>>>>>> eb8cf6bfb64df62b4eeac3d7c5fe9d92ca3274a4
