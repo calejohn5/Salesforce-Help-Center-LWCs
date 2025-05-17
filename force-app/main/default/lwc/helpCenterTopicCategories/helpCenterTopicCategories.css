@@ -1,0 +1,285 @@
+.aligned-title, .content-title {
+    font-size: 1.5rem;
+    line-height: 120%;
+    padding-left: 1rem;
+}
+
+
+.grid-item.selected, .grid-item:hover {
+    background-color: #FAFAFA; /* Light grey background for hover and selection */
+}
+
+.grid-item:first-child {
+    border-top: 1px solid #D9DCE2;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.full-width-link span {
+    z-index: 1;
+    color: var(--plus-text-color, #0B0C0F);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.grid-item:hover {
+    background-color: #FAFAFA;
+}
+
+.content-title {
+    font-size: 0.8rem; /* Decreased font size */
+    line-height: 1.2;
+    margin-bottom: 2rem; /* Maintain existing top margin */
+    padding-bottom: 0.8rem;
+    display: block; /* Ensures padding affects layout */
+    padding-left: 0;
+}
+
+.help-center-link {
+    color: #0070d2; /* Standard link color */
+    text-decoration: none;
+}
+
+.help-center-link:hover {
+    text-decoration: underline;
+}
+
+/* Left column styling */
+.slds-col.slds-size_1-of-3 {
+    padding: 2rem;
+    padding-top: .5rem;
+    position: relative; /* Ensures the pseudo-element is positioned relative to this container */
+}
+
+/* Right border as divider */
+.slds-col.slds-size_1-of-3::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Width of the divider */
+    background-color: #d0d0d0; /* Grey color for the divider */
+    padding-top: 0.5rem;
+}
+
+.content-box {
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 2rem;
+}
+
+/* Ensuring that articles have no additional borders or background */
+a.article-link {
+    display: block;
+    width: 100%;
+    padding-left: 20px; /* Consistent padding with increased left padding */
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    color: #0176d3;
+    font-size: 1rem;
+}
+
+.article-link:hover {
+    background-color: #f0f8ff; /* Light blue background on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Resetting list styles for uniformity */
+.content-box ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0; /* No external margins */
+}
+
+.content-box li {
+    padding: 0; /* No padding to ensure full-width alignment */
+}
+
+.content-box li:first-child {
+    border-top: 1px solid #D9DCE2;
+}
+
+/* Subtopic headers and article links styling */
+.accordion-header, .article-link {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* Content and arrow on opposite ends */
+    align-items: center;
+    text-decoration: none; /* No underline */
+    color: #0176d3; /* Link color */
+}
+
+/* General styling for all accordion headers */
+.accordion-header {
+    padding: 15px; /* Existing top, right, and bottom padding */
+    padding-left: 20px; /* Increased left padding */
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 1px solid #D9DCE2;
+    border-right: 1px solid #D9DCE2;
+    border-top: 1px solid #D9DCE2;
+    color: #0B0C0F; /* Black color for text */
+    font-size: 1rem;
+}
+
+.accordion-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the arrow */
+    font-size: 24px; /* Large arrow size */
+    line-height: 24px;
+    margin-right: 10px;
+}
+
+.arrow-right::before {
+    content: '▸'; /* Right-pointing arrow */
+}
+
+.arrow-down::before {
+    content: '▾'; /* Down-pointing arrow */
+}
+
+/* Styling for the last topic header to round the top corners */
+.accordion-section:last-child {
+    border-bottom: 1px solid #D9DCE2;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Styling for the accordion content to ensure the borders match */
+li.article-item {
+    border-left: 1px solid #D9DCE2; /* Light grey border */
+    border-right: 1px solid #D9DCE2; /* Light grey border */
+    border-bottom: 1px solid #D9DCE2; /* Light grey border */
+}
+
+.accordion-content.slds-show {
+    display: block; /* Display when section is open */
+}
+
+/* Styling for the last item in the accordion to round the bottom corners */
+li.article-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header.selected {
+    border: 2px solid #0070d2; /* Thicker and dark blue border */
+    background-color: #e7f1ff; /* Light blue background to indicate selection */
+    border-radius: 4px; /* Rounded corners for the selected header */
+}
+
+
+
+/* NEW */
+
+
+.grid-container {
+    display: grid; /* Reset to grid for desktop */
+    grid-template-columns: 1fr; /* Single column layout in desktop */
+    grid-gap: 0;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: none;
+}
+
+.grid-item {
+    background-color: #FFFFFF;
+    border: 1px solid #D9DCE2;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item:last-child {
+    margin-right: 0; /* Removes margin for the last item to avoid extra spacing */
+}
+
+.full-width-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+}
+
+.topic-image {
+    width: 40px; /* Fixed width for images */
+    height: auto; /* Keeps the aspect ratio of the image */
+    margin-right: 10px; /* Space between the image and the text */
+}
+
+@media (max-width: 768px) {
+    .slds-col {
+        width: 100%; /* Full width on mobile for better control */
+    }
+    .topic-container, .subtopic-container {
+        padding-bottom: 1rem; /* Adds space between sections when stacked */
+    }
+
+    .grid-container {
+        display: flex; /* Enable flexbox layout for horizontal scrolling */
+        overflow-x: auto; /* Allows horizontal scrolling */
+        overflow-y: hidden; /* Prevents vertical scrolling */
+        white-space: nowrap; /* Keeps items in a single horizontal line */
+        padding: 1rem 0; /* Vertical padding only, to keep content aligned */
+        align-items: center; /* Centers items vertically */
+        -webkit-overflow-scrolling: touch; /* Improves scrolling on touch devices */
+    }
+
+    .grid-item {
+        display: inline-flex; /* Use inline-flex to keep items in line */
+        align-items: center; /* Align content of each item vertically */
+        justify-content: center; /* Centers content horizontally */
+        background-color: #FFFFFF;
+        border: 1px solid #D9DCE2;
+        margin-right: 15px; /* Space between items */
+        padding: 1rem; /* Adjust padding to fit content */
+        box-sizing: border-box;
+        height: auto; /* Allows variable height based on content */
+        min-width: 200px; /* Minimum width for each item */
+        flex-shrink: 0; /* Prevents flex items from shrinking */
+        min-height: 80px; /* Increased height for better readability and tap target size */
+        border-radius: 10px; /* Rounded corners for a smoother look */
+    }
+
+    .grid-item:first-child {
+        border-top-left-radius: 12px; /* Moderately more pronounced rounding for the first item's top left corner */
+        border-top-right-radius: 12px; /* Moderately more pronounced rounding for the first item's top right corner */
+    }
+
+    .grid-item:last-child {
+        margin-right: 0; /* Removes margin from the last item */
+    }
+
+    .grid-item:hover, .grid-item.selected {
+        background-color: #F2F2F2; /* Slightly darker grey on hover or selection */
+    }
+
+    .full-width-link {
+        width: 100%; /* Full width links within each item */
+        height: 100%; /* Full height to cover the area */
+        display: flex;
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        text-decoration: none;
+        color: inherit;
+        padding: 0; /* Remove padding if previously set to better center content */
+    }
+
+    .topic-image {
+        display: none; /* Hide image on mobile */
+    }
+}
