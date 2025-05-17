@@ -1,8 +1,0 @@
-ebody{
-  margin: 0;
-}
-/* this changes the price of bike displayed as green, in detail's shadow DOM */
-.price {
-  color: green;
-  font-weight: bold;
-}
