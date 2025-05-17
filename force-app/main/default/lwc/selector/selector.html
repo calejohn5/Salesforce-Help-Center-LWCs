@@ -1,0 +1,18 @@
+<!--selector contains the whole set of components, it isn't required but its being used to help w/ event handling-->
+<!--render several tile components, one for each bike from data-->
+<template>
+    <div class="wrapper">
+<!-- include users name -->
+    <header class="header">Hello {name}! Use quick view or choose a month</header>
+    <section class="content">
+        <div class="columns">
+        <main class="main" >
+            <c-list onproductselected={handleProductSelected}></c-list>
+        </main>
+        <aside class="sidebar-second">
+            <c-detail product-id={selectedProductId}></c-detail>
+        </aside>
+        </div>
+    </section>
+    </div>
+</template>

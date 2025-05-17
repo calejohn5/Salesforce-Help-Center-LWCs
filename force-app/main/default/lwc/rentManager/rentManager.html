@@ -1,0 +1,25 @@
+<template>
+    <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows>
+        <lightning-layout-item size="12">
+            <div class="slds-text-heading_large slds-m-vertical_large">Update Payment</div>
+        </lightning-layout-item>
+
+        <!-- ROOMMATE SEARCH-->
+        <lightning-layout-item class="slds-align-middle">
+            <lightning-combobox class="slds-align-middle" 
+            value={selectedMonthTypeId}
+            options={roommateOptions}
+            onchange={handleSearchOptionChange}>
+          </lightning-combobox>
+          </lightning-layout-item>
+
+        <!-- MONTH SEARCH-->
+        <lightning-layout-item class="slds-align-middle">
+            <lightning-combobox class="slds-align-middle" 
+            value={selectedMonthTypeId}
+            options={monthOptions}
+            onchange={handleSearchOptionChange}>
+          </lightning-combobox>
+          </lightning-layout-item>
+    </lightning-layout>
+</template>

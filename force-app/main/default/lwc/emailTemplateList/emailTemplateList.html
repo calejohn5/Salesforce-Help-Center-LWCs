@@ -1,0 +1,125 @@
+<template>
+    <lightning-card>
+      <div class="slds-m-around_medium">
+        <!-- Start of Grid -->
+        <div class="slds-grid slds-wrap slds-gutters slds-align_absolute-center">
+          <!-- Search Bar Container -->
+          <div class="slds-col slds-size_1-of-3 slds-align-middle">
+              <lightning-input 
+                  type="search"
+                  placeholder="Search by template name..."
+                  onchange={handleSearchInputChange}
+                  class="slds-m-bottom_small">
+              </lightning-input>
+          </div>
+          <!-- Button Container -->
+          <div class="slds-col slds-size_2-of-3 slds-text-align_right slds-align-middle lower-button">
+            <lightning-button label="New Email Template" onclick={handleOpenModal}></lightning-button>
+          </div>
+        </div>
+        <!-- End of Grid -->
+        <div class="slds-clearfix"></div>
+      </div>
+      <template if:true={emailTemplates}>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+          <thead>
+            <tr>
+              <th scope="col" class="slds-is-sortable" onclick={handleHeaderClick} data-field="Name">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <span class="slds-truncate" title="Email Template Name">Email Template Name</span>
+                  <template if:true={isNameSorted}>
+                    <lightning-icon icon-name={nameSortIcon} size="xx-small" class="slds-m-left_x-small"></lightning-icon>
+                  </template>
+                </div>
+              </th>
+              <th scope="col" class="description-column slds-is-sortable" onclick={handleHeaderClick} data-field="Description">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <span class="slds-truncate" title="Description">Description</span>
+                  <template if:true={isDescriptionSorted}>
+                    <lightning-icon icon-name={descriptionSortIcon} size="xx-small" class="slds-m-left_x-small"></lightning-icon>
+                  </template>
+                </div>
+              </th>
+              <th scope="col" class="slds-is-sortable" onclick={handleHeaderClick} data-field="DisplayedEntityType">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <span class="slds-truncate" title="Template Type">Template Type</span>
+                  <template if:true={isEntityTypeSorted}>
+                    <lightning-icon icon-name={entityTypeSortIcon} size="xx-small" class="slds-m-left_x-small"></lightning-icon>
+                  </template>
+                </div>
+              </th>
+              <th scope="col" class="slds-is-sortable" onclick={handleHeaderClick} data-field="FormattedLastModifiedDate">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <span class="slds-truncate" title="Last Modified Date">Last Modified Date</span>
+                  <template if:true={isLastModifiedDateSorted}>
+                    <lightning-icon icon-name={lastModifiedDateSortIcon} size="xx-small" class="slds-m-left_x-small"></lightning-icon>
+                  </template>
+                </div>
+              </th>
+              <th scope="col" class="slds-is-sortable" onclick={handleHeaderClick} data-field="LastModifiedBy">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <span class="slds-truncate" title="Last Modified By">Last Modified By</span>
+                  <template if:true={isLastModifiedBySorted}>
+                    <lightning-icon icon-name={lastModifiedBySortIcon} size="xx-small" class="slds-m-left_x-small"></lightning-icon>
+                  </template>
+                </div>
+              </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={emailTemplates} for:item="template">
+              <tr key={template.Id}>
+                <td>
+                  <a onclick={navigateToRecordDetail} data-record-id={template.Id}>{template.Name}</a>
+                </td>
+                <td class="description-column">{template.Description}</td>
+                <td>{template.DisplayedEntityType}</td>
+                <td>{template.FormattedLastModifiedDate}</td>
+                <td>{template.LastModifiedBy.Name}</td>
+                <td class="dropdown-container">
+                  <lightning-button-menu class="dropdown-button" icon-size="x-small" alternative-text="Actions" onselect={handleRowAction} data-record-id={template.Id}>
+                    <lightning-menu-item label="Delete" value="delete"></lightning-menu-item>                  
+                  </lightning-button-menu>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </template>
+      <template if:false={emailTemplates}>
+        <p>No Email Templates found.</p>
+      </template>
+      <template if:true={hasPagination}>
+        <div class="pagination-container slds-m-top_small">
+          <template if:true={hasPrevious}>
+            <lightning-button class="previous-button" label="Previous" variant="brand" onclick={handlePrevious} disabled={disabledPrevious}></lightning-button>
+          </template>
+          <span class="pagination-text">{currentPage} of {totalPages}</span>
+          <template if:true={hasNext}>
+            <lightning-button class="next-button" label="Next" variant="brand" onclick={handleNext} disabled={disabledNext}></lightning-button>
+          </template>
+        </div>
+      </template>
+  
+      <!-- for the modal -->
+      <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseModal}>
+                        <lightning-icon icon-name="utility:close" variant="inverse" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Email Template</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <!-- this event will close modal on save -->
+                  <c-email-template-builder onclosemodal={handleCloseModal}></c-email-template-builder>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    </lightning-card>
+  </template>

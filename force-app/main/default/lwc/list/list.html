@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Roommates!" icon-name="standard:catalog">
+        <div class="container">
+            <template if:true={records}>
+            <!-- iterate a tile for each roommate record and pass the child our data to work with -->
+                <template for:each={records} for:item="roommate">
+                     <c-tile
+                    key={roommate.Id}
+                    roommate={roommate}>
+                    </c-tile>
+            <!-- for future reference add ontileclick={handleTileClick} to our c-tile when ready to add feature -->
+                </template>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+            <c-month-search>
+            </c-month-search>
+        </div>
+    </lightning-card>
+</template>

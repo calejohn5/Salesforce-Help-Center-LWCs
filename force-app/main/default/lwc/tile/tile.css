@@ -1,0 +1,67 @@
+.container {
+    border: 1px rgb(168, 166, 166) solid ;
+    border-radius: 5px;
+    background-color: white;
+    margin:15px;
+    padding: 2px;
+    max-width: 150px;
+    display: flex;
+    background: #216C2A;
+}
+.month-items {
+    border-bottom: 1px solid #216C2A;
+    border-radius: 1px;
+    padding-top: 5px;
+    background-color: white;
+    color:#303030;
+    padding-bottom: 10px;
+}
+.title {
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 1px;
+    border: 2px solid #216C2A;
+    text-align: center;
+    position:relative;
+    top:-25px;
+    color: white;
+    font-size: 15px;
+    background:#303030;
+}
+p {
+    font-family: sans-serif, Charcoal;
+    padding-left:5px;
+    padding-right:5px;
+}
+/*#ADEFD1FF      money green #216C2A         black   #00203FFF*/
+
+
+
+
+
+
+
+
+
+
+.product-img {
+    max-width: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: #00A4CCFF;
+}
+
+a:link {
+    color: rgb(159, 159, 159);
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    color: hotpink;
+}
+a:active {
+    color: blue;
+}

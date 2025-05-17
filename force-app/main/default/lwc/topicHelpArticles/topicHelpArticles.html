@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Topic Help Articles" class="my-card">
+        <div slot="title">
+            <h3 class="aligned-title">All Topics</h3>
+        </div>
+
+        <!-- Display loading or content based on isLoading state -->
+        <template if:true={isLoading}>
+            <div></div>
+        </template>
+
+        <!-- Once loading is complete, display content or errorss -->
+        <template if:false={isLoading}>
+            <template if:false={isMobile}>
+                <div class="grid-container">
+                    <template for:each={articles} for:item="article">
+                        <div key={article.Id} class="grid-item">
+                            <a href={article.URL__c} style={article.style}>
+                                <!-- Image displayed as the first element inside the link -->
+                                <lightning-formatted-rich-text class="hello" value={article.Image__c} alt="Article Image"></lightning-formatted-rich-text> 
+                                <!-- Title displayed below the image -->
+                                <div class="article-title">{article.Title__c}</div>
+                            </a>
+                        </div>
+                    </template>
+                    <template if:true={errorMessage}>
+                        <p class="slds-text-color_error">{errorMessage}</p>
+                        <p class="slds-text-color_error">{errorDetails}</p>
+                    </template>
+                    <template if:false={articles}>
+                        <p class="slds-text-color_error">Error loading topics.</p>
+                    </template>
+                </div>
+            </template>
+            <template if:true={isMobile}>
+                <div class="mobile-container">
+                    <template for:each={articles} for:item="article">
+                        <div key={article.Id} class="mobile-item">
+                            <a href={article.URL__c} style={article.style}>
+                                <lightning-formatted-rich-text class="hello" value={article.Image__c} alt="Article Image"></lightning-formatted-rich-text>
+                                <div class="article-title">{article.Title__c}</div>
+                            </a>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

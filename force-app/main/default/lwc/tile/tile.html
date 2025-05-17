@@ -1,0 +1,19 @@
+<template>
+<div class='container'>
+    <lightning-card>
+        <div class="title">{roommate.Name}</div>
+<!-- 
+    TO NOTE. This is not the best way to access our data. 
+    I should have mapped the data instead of leaving it in a string 
+-->
+        <!-- loop through our object again to access our 2nd layer -->
+        <template class='hello' for:each={roommate.Months__r} for:item="months">
+            <p key= {months.Id} class="month-items">
+                {months.Name}               
+                <lightning-icon class="green-background" icon-name="utility:chevronright" alternative-text="result" variant="success" title="success variant x-small" size="xx-small"></lightning-icon> 
+                <b>{months.Payment__c}</b> 
+            </p>
+       </template>
+    </lightning-card>
+</div>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <template if:true={product}>
+    <div class="container">
+<!-- here we use slds heading styles to give a standard lightning text, no need to import-->
+                            <!-- name -->
+        <div class="slds-text-heading_small">{product.fields.Name.value}</div>
+                            <!-- All caught up! -->
+        <div class="price">{product.fields.MSRP__c.displayValue}</div>
+                            <!-- Months -->
+        <div class="description">{product.fields.Description__c.value}</div>
+        <img class="product-img" src={product.fields.Picture_URL__c.value}></img>
+        <p>
+            <lightning-badge label={product.fields.Material__c.value}></lightning-badge>
+            <lightning-badge label={product.fields.Level__c.value}></lightning-badge>
+        </p>
+        <p>
+            <lightning-badge label={product.fields.Category__c.value}></lightning-badge>
+        </p>
+    </div>
+    </template>
+    <template if:false={product}>
+    <div class="slds-text-heading_medium">Select a roommate</div>
+    </template>
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="New Email Template">
+        <div class="slds-p-around_medium">
+            <div class="slds-m-bottom_medium">
+            <lightning-input label="Email Template Name" value={Name} onchange={handleNameChange} required></lightning-input>
+            </div>
+            <div class="slds-m-bottom_medium">
+                <lightning-combobox label="Related Entity Type" 
+                                    options={relatedEntityTypeOptions} 
+                                    value={relatedEntityType} 
+                                    onchange={handleRelatedEntityTypeChange} 
+                                    required></lightning-combobox>
+            </div>
+            <div class="slds-m-bottom_medium">
+                <lightning-input label="Description" value={Description} onchange={handleDescriptionChange}></lightning-input>
+            </div>
+            <div class="slds-m-bottom_medium">
+            <lightning-input label="Subject" value={Subject} onchange={handleSubjectChange}></lightning-input>
+            </div>
+            <div class="slds-m-bottom_medium">
+                <lightning-input-rich-text label="Body" value={Body} onchange={handleBodyChange}></lightning-input-rich-text>
+                <!-- merge fields -->
+                <div class="slds-col slds-col_bump-right">
+                    <lightning-combobox
+                        label="Insert merge field"
+                        options={fieldsOptions}
+                        onchange={handleFieldSelection}
+                        value={selectedFieldApiName}
+                        class="slds-size_small"
+                    ></lightning-combobox>
+                </div>
+            </div>
+            <div class="slds-grid slds-grid_align-end">
+                <div class="slds-col">
+                    <lightning-button label="Cancel" variant="neutral" onclick={handleCancel} title="Cancel the action" class="slds-m-right_xx-small"></lightning-button>
+                    <lightning-button label="Save" onclick={createEmailTemplate} variant="brand"></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
